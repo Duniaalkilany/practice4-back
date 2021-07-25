@@ -8,7 +8,7 @@ app.use(express.json())
 require('dotenv').config()
 const PORT=process.env.PORT
 
-mongoose.connect('mongodb://localhost:27017/psychonauts', {useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect(`${process.env.MONGO_ATLAS_URL}`, {useNewUrlParser:true,useUnifiedTopology:true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
